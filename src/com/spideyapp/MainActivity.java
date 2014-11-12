@@ -40,6 +40,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.support.v4.app.FragmentActivity;
 
 import com.espian.showcaseview.OnShowcaseEventListener;
 import com.espian.showcaseview.ShowcaseView;
@@ -55,7 +56,7 @@ import com.spideyapp.sqlite.helper.DatabaseHelper;
 import com.spideyapp.sqlite.model.CellInfo;
 import com.spideyapp.sqlite.model.Scan;
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
 
 	private final static String TAG = "Spidey";
 
@@ -558,14 +559,20 @@ public class MainActivity extends Activity {
 
 	    @Override
 	    public void onReceive(Context context, Intent intent) {
-	      Bundle bundle = intent.getExtras();
-	      if (bundle != null) {
-	    	
-	    	  int cellId = bundle.getInt("cid");
-	    	  int dbm = bundle.getInt("dbm");
-	       
-	    	  mMapFragment.addCircleOverlay(cellId+"", mMapFragment.getLastLocation().getLatitude(), mMapFragment.getLastLocation().getLongitude(), dbm);
-	      }
+	    	try {
+	    		Bundle bundle = intent.getExtras();
+	    		if (bundle != null) {
+		    	
+		    	  int cellId = bundle.getInt("cid");
+		    	  int dbm = bundle.getInt("dbm");
+		       
+		    	  mMapFragment.addCircleOverlay(cellId+"", mMapFragment.getLastLocation().getLatitude(), mMapFragment.getLastLocation().getLongitude(), dbm);
+	    		}
+	    	}
+	    	catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+	    	}
 	    }
 	  };
 	  
