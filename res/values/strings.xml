@@ -21,6 +21,6 @@
     <string name="history_of_spidey_scans">History of Spidey Scans</string>
     <string name="required_mobile_settings">Required Mobile Settings</string>
     <string name="please_uncheck_data_enabled_and_set_preferred_network_type_to_2g_on_the_mobile_network_settings_screen_click_ok_to_open_it_now_">Please uncheck \'Data enabled\' and set \'Preferred network type\' to 2G on the \'Mobile Network\' settings screen (click OK to open it now)</string>
-    
+    <string name="ok">OK</string>
     
 </resources>
